@@ -12,6 +12,20 @@ export class TaskService {
     task1.dueDate = '2023-01-01';
     task1.status = 'NOT_STARTED';
     this.tasks.push(task1);
+
     return this.tasks
+  }
+
+  createTask(name: string, dueDate: string, description?: string): Task {
+    const newTask = new Task();
+    newTask.id = this.tasks.length + 1
+    newTask.name = name;
+    newTask.dueDate = dueDate;
+    newTask.status = 'NOT_STARTED';
+    newTask.description = description;
+
+    this.tasks.push(newTask);
+
+    return newTask;
   }
 }
